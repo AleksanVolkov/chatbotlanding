@@ -518,11 +518,13 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <!-- Custom JS -->
     <script>
-        $(document).ready(function() {
+        
             // Initialize Slick Slider only on mobile/tablet (370–1299 px)
             function initSlider() {
-                if ($(window).width() < 1300) {
-                    if (! $('.slider___wrapper').hasClass('slick-initialized')) {
+
+                
+                if ($(window).width() < 1300 && $(window).width() > 770) {
+                    if (!$('.slider___wrapper').hasClass('slick-initialized')) {
                         $('.slider___wrapper').slick({
                             centerMode: true,
                             centerPadding: '10px',
@@ -534,34 +536,80 @@
                             dots: false,
                             infinite: true,
                             adaptiveHeight: true,
-                            responsive: [
-                                 {
-                                    breakpoint: 1300,
+                            slidesToShow: 3
+                            // responsive: [
+                            //      {
+                            //         breakpoint: 1300,
                                      
-                                    settings: {
-                                        centerPadding: '10px',
-                                        slidesToShow: 3
-                                    }
-                                },
-                                {
-                                    breakpoint: 768,
+                            //         settings: {
+                            //             centerPadding: '10px',
+                            //             slidesToShow: 3
+                            //         }
+                            //     },
+                            //     {
+                            //         breakpoint: 768,
                                      
-                                    settings: {
-                                        centerPadding: '10px',
-                                        slidesToShow: 2,
-                                    }
-                                },
-                                {
-                                    breakpoint: 540,
-                                    settings: {
-                                        centerPadding: '10px'
-                                    }
-                                }
-                            ]
+                            //         settings: {
+                            //             centerPadding: '10px',
+                            //             slidesToShow: 2,
+                            //         }
+                            //     },
+                            //     {
+                            //         breakpoint: 540,
+                            //         settings: {
+                            //             centerPadding: '10px'
+                            //         }
+                            //     }
+                            // ]
                         });
                         
                     }
-                } else {
+                }
+                
+             else if($(window).width() < 768 && $(window).width() > 545) {
+                console.log('ddd')
+                    if (!$('.slider___wrapper').hasClass('slick-initialized')) {
+                        $('.slider___wrapper').slick({
+                            centerMode: true,
+                            centerPadding: '10px',
+                           
+                            slidesToScroll: 1,
+                            autoplay: true,
+                            autoplaySpeed: 3000,
+                            arrows: false,
+                            dots: false,
+                            infinite: true,
+                            adaptiveHeight: true,
+                            slidesToShow: 2
+                           
+                        });
+                        
+                    }
+                }
+                else if($(window).width() < 540 ) {
+                console.log('ddd')
+                    if (!$('.slider___wrapper').hasClass('slick-initialized')) {
+                        $('.slider___wrapper').slick({
+                            centerMode: true,
+                            centerPadding: '10px',
+                           
+                            slidesToScroll: 1,
+                            autoplay: true,
+                            autoplaySpeed: 3000,
+                            arrows: false,
+                            dots: false,
+                            infinite: true,
+                            adaptiveHeight: true,
+                            slidesToShow: 1
+                           
+                        });
+                        
+                    }
+                }
+                
+                
+                
+                else {
                     // Destroy slider on desktop
                     if ($('.slider___wrapper').hasClass('slick-initialized')) {
                         $('.slider___wrapper').slick('unslick');
@@ -576,7 +624,7 @@
             $(window).on('resize', function() {
                 initSlider();
             });
-        });
+        
     </script>
     
 </body>
